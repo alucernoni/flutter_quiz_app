@@ -13,7 +13,7 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   Widget? activeScreen;
-  // don't use var because of its strict type inference, it will only take type "HomeContainer", using Widget because accepting/flexible of any widget
+  // need the question mark because the activeScreen object is initially created with a value of null before initState runs and sets it
 
   @override
   void initState() {
