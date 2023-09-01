@@ -29,6 +29,7 @@ class HomeContainer extends StatelessWidget {
             //     width: 300,
             //   ),
             // ),
+            // this opacity widget is more performance heavy, hence using the option below instead
             Image.asset(
               'assets/images/quiz-logo.png',
               width: 300,
