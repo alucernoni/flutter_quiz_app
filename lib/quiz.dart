@@ -25,12 +25,12 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(context) {
-    final screenWidget = activeScreen == 'start-screen'
-            ? HomeContainer(switchScreen)
-            : const QuestionScreen();
+    Widget screenWidget = HomeContainer(switchScreen);
+    // once again using widget instead of var because of typing flexibility
 
-    // this new screenWidget function is only available in the build, not in the whole class 
-    // can extract ternary up here to make it look cleaner and more readable, or convert ternary to if statement
+    if (activeScreen == 'questions-screen') {
+      screenWidget = const QuestionScreen();
+    }
 
     return MaterialApp(
       home: Scaffold(
