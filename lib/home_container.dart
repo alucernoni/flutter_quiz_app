@@ -40,10 +40,11 @@ class HomeContainer extends StatelessWidget {
             OutlinedButton(
               onPressed: startQuiz(),
               style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
+                // foregroundColor: Colors.white,
               ),
               child: const Text(
                 'Start Quiz',
+                style: TextStyle(color: Color.fromARGB(255, 216, 159, 231)),
               ),
             ),
           ],
