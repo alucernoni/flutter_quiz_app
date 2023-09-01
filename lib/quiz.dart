@@ -12,13 +12,19 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget activeScreen = const HomeContainer();
-  // don't use var because of it's strict type inference, it will only take type "HomeContainer", using Widget because accepting/flexible of any widget
+  Widget? activeScreen;
+  // don't use var because of its strict type inference, it will only take type "HomeContainer", using Widget because accepting/flexible of any widget
+
+  @override
+  void initState() {
+    activeScreen = HomeContainer(switchScreen);
+    super.initState();
+  }
 
   switchScreen() {
     setState(
       () {
-        const QuestionScreen();
+        activeScreen = const QuestionScreen();
       },
     );
   }
