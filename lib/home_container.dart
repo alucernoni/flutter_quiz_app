@@ -22,14 +22,6 @@ class HomeContainer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Opacity(
-            //   opacity: 0.6,
-            //   child: Image.asset(
-            //     'assets/images/quiz-logo.png',
-            //     width: 300,
-            //   ),
-            // ),
-            // this opacity widget is more performance heavy, hence using the option below instead
             Image.asset(
               'assets/images/quiz-logo.png',
               width: 300,
