@@ -27,15 +27,16 @@ class HomeContainer extends StatelessWidget {
               height: 300,
             ),
             const SizedBox(
-              height: 50,
+              height: 80,
             ),
             const Text(
               'Learn Flutter the fun way!',
               style: TextStyle(
-                  color: Color.fromARGB(255, 190, 123, 225), fontSize: 24),
+                  color: Color.fromARGB(255, 190, 123, 225), 
+                  fontSize: 24),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             ElevatedButton(
               onPressed: startQuiz(),
