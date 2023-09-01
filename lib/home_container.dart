@@ -22,9 +22,17 @@ class HomeContainer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // Opacity(
+            //   opacity: 0.6,
+            //   child: Image.asset(
+            //     'assets/images/quiz-logo.png',
+            //     width: 300,
+            //   ),
+            // ),
             Image.asset(
               'assets/images/quiz-logo.png',
               width: 300,
+              color: const Color.fromARGB(150, 255, 255, 255),
             ),
             const SizedBox(
               height: 80,
@@ -40,8 +48,8 @@ class HomeContainer extends StatelessWidget {
             OutlinedButton.icon(
               onPressed: startQuiz(),
               style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
+                  // foregroundColor: Colors.white,
+                  ),
               icon: const Icon(Icons.arrow_right_alt),
               label: const Text(
                 'Start Quiz',
