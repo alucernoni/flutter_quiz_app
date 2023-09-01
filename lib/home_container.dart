@@ -24,7 +24,7 @@ class HomeContainer extends StatelessWidget {
           children: [
             Image.asset(
               'assets/images/quiz-logo.png',
-              height: 300,
+              width: 300,
             ),
             const SizedBox(
               height: 80,
@@ -32,19 +32,18 @@ class HomeContainer extends StatelessWidget {
             const Text(
               'Learn Flutter the fun way!',
               style: TextStyle(
-                  color: Color.fromARGB(255, 190, 123, 225), 
-                  fontSize: 24),
+                  color: Color.fromARGB(255, 190, 123, 225), fontSize: 24),
             ),
             const SizedBox(
               height: 30,
             ),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: startQuiz(),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
               child: const Text(
                 'Start Quiz',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 190, 123, 225),
-                ),
               ),
             ),
           ],
