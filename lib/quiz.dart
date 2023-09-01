@@ -5,7 +5,7 @@ class Quiz extends StatefulWidget {
   const Quiz({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  State<Quiz> createState() {
     return _QuizState();
   }
 }
