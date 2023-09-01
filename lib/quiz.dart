@@ -12,19 +12,13 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget? activeScreen;
-  // need the question mark because the activeScreen object is initially created with a value of null before initState runs and sets it
+  var activeScreen = 'start-screen';
+  // can also use strings (or numbers) as pointers. a bit less code, since eliminates the need for the initState method
 
-  @override
-  void initState() {
-    activeScreen = HomeContainer(switchScreen);
-    super.initState();
-  }
-
-  switchScreen() {
+  void switchScreen() {
     setState(
       () {
-        activeScreen = const QuestionScreen();
+        activeScreen = 'questions-screen';
       },
     );
   }
@@ -33,7 +27,7 @@ class _QuizState extends State<Quiz> {
   Widget build(context) {
     return MaterialApp(
       home: Scaffold(
-        body: activeScreen,
+        body: activeScreen == 'start-screen' ? HomeContainer(switchScreen) : const QuestionScreen(),
       ),
     );
   }
