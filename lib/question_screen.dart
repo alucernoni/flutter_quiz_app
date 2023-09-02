@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/answer_button.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -19,19 +20,22 @@ class _QuestionScreenState extends State<QuestionScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         // built in way of centering items in the column vertically
         children: [
-          const Text('The question...'),
+          const Text(
+            'The question...',
+            style: TextStyle(color: Colors.deepPurple),
+          ),
           const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
+          AnswerButton(
+            answerText: 'answer text...',
+            onClick: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 2'),
+          AnswerButton(
+            answerText: 'answer text...',
+            onClick: () {},
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 3'),
+          AnswerButton(
+            answerText: 'answer text...',
+            onClick: () {},
           ),
         ],
       ),
