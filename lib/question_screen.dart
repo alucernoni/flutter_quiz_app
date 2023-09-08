@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.onSelectAnswer});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -12,9 +15,22 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1;
+    // these are both the same as below, to walk us through our questions one by one
+    setState(() {
+      // currentQuestionIndex++;
+      currentQuestionIndex = currentQuestionIndex + 1;
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -28,16 +44,24 @@ class _QuestionScreenState extends State<QuestionScreen> {
           // built in way of expanding the items in the column to the full width of the column
           children: [
             Text(
-              textAlign: TextAlign.center,
               currentQuestion.text,
               //can access both text and answers properties through dot notation because we constructed our questions doc with the quizQuestion constructor that receives text, and answers arguments
-              style: const TextStyle(color: Colors.deepPurple),
+              // style: const TextStyle(color: Colors.deepPurple),
+              style: GoogleFonts.dosis(
+                color: const Color.fromARGB(255, 131, 75, 227),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(
                 answerText: answer,
-                onClick: () {},
+                onClick: () {
+                  answerQuestion(answer);
+                },
+                // unclear to me why this needed to become an anonymous function that calls the function instead of passing the function pointer 
               );
             }),
             // ... at the start of the mapping is how Flutter does the spread operator
