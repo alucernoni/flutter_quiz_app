@@ -12,6 +12,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  final List<String> selectedAnswers = [];
   var activeScreen = 'start-screen';
   // can also use strings (or numbers) as pointers. a bit less code, since eliminates the need for the initState method
 
@@ -23,19 +24,23 @@ class _QuizState extends State<Quiz> {
     );
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+  }
+
   @override
   Widget build(context) {
     Widget screenWidget = HomeContainer(switchScreen);
     // once again using widget instead of var because of typing flexibility
 
     if (activeScreen == 'questions-screen') {
-      screenWidget = const QuestionScreen();
+      screenWidget = QuestionScreen(
+        onSelectAnswer: chooseAnswer,
+        );
     }
 
     return MaterialApp(
-      home: Scaffold(
-        body: screenWidget
-      ),
+      home: Scaffold(body: screenWidget),
     );
   }
 }
