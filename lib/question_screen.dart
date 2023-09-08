@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -42,7 +43,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Text(
               currentQuestion.text,
               //can access both text and answers properties through dot notation because we constructed our questions doc with the quizQuestion constructor that receives text, and answers arguments
-              style: const TextStyle(color: Colors.deepPurple),
+              // style: const TextStyle(color: Colors.deepPurple),
+              style: GoogleFonts.dosis(
+                color: const Color.fromARGB(255, 131, 75, 227),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
