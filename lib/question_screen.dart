@@ -12,9 +12,21 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    // currentQuestionIndex = currentQuestionIndex + 1;
+    // currentQuestionIndex += 1;
+    // these are both the same as below, to walk us through our questions one by one
+    setState(() {
+      // currentQuestionIndex++;
+      currentQuestionIndex = currentQuestionIndex + 1;
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -28,16 +40,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
           // built in way of expanding the items in the column to the full width of the column
           children: [
             Text(
-              textAlign: TextAlign.center,
               currentQuestion.text,
               //can access both text and answers properties through dot notation because we constructed our questions doc with the quizQuestion constructor that receives text, and answers arguments
               style: const TextStyle(color: Colors.deepPurple),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(
                 answerText: answer,
-                onClick: () {},
+                onClick: answerQuestion,
               );
             }),
             // ... at the start of the mapping is how Flutter does the spread operator
